@@ -1,8 +1,8 @@
 import  { SkynetClient }  from "./skynet-js";
 import CryptoJS from "./crypto-js";
 import Web3 from 'web3';
-import detectEthereumProvider from '@metamask/detect-provider';
-import Sahayak from "./abis/Sahayak.json";
+//import detectEthereumProvider from '@metamask/detect-provider';
+//import Sahayak from "./abis/Sahayak.json";
 //import webpack from 'webpack';
 //import '@babel/polyfill/noConflict';
 
