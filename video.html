@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="public/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src='https://meet.jit.si/external_api.js'></script>
+</head>
+
+<body id="video-call">
+  <div class="call">
+    <button type="button" id="start" class="btn btn-info btn-lg">Click to start a Video Call</button>
+  </div>
+
+  <div id="jitsi-container">
+  </div>
+
+  <script>
+    var button = document.querySelector('#start');
+    var container = document.querySelector('#jitsi-container');
+    var api = null;
+
+    button.addEventListener('click', () => {
+      var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var stringLength = 30;
+
+      function pickRandom() {
+        return possible[Math.floor(Math.random() * possible.length)];
+      }
+
+      var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
+
+      var domain = "meet.jit.si";
+      var options = {
+        "roomName": randomString,
+        "parentNode": container,
+        "width": 600,
+        "height": 600,
+      };
+      api = new JitsiMeetExternalAPI(domain, options);
+    });
+  </script>
+</body>
+
+</html>
