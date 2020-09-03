@@ -1,5 +1,3 @@
-# HackBVP-4.0
-The entry project for HackBVP@4.0 which not only solves some real world issues but also make it secure.
 
 
 ## Sahayak
