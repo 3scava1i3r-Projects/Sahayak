@@ -117,19 +117,12 @@ const initTimeline = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-    const q = await web3.eth.getTransaction(Txn_Hash.value);
     //const w = await web3.eth.getBlock(q.input);
 
 //////////////////////////////////////////////////////////////logic for validation
+
+
+    //  const q = await web3.eth.getTransaction(Txn_Hash.value);
 
     // const client = new SkynetClient("https://siasky.net/");
     // const { skylink } = await client.upload(file);
@@ -156,10 +149,6 @@ const initTimeline = () => {
     // }
 
 ////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 
 
