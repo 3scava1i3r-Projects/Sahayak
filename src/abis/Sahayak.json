@@ -401,10 +401,16 @@
       "links": {},
       "address": "0x2e5a135b7D8c0f09fC14052D414dFA3Efdb44dfD",
       "transactionHash": "0x8a2135dc1697eb6c64e1583f1cd1b9e318f82e00b2ddbb50c90ce7fe5fad801c"
+    },
+    "80001": {
+      "events": {},
+      "links": {},
+      "address": "0x490712D2e327C68e12335E6629a68ECe46850F7c",
+      "transactionHash": "0x238be33aad7004ac16f6f48e0628e16085f3db3be5be84a13f51aedd92efa839"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-08-29T16:19:05.977Z",
+  "updatedAt": "2020-09-03T13:51:28.981Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
@@ -412,3 +418,4 @@
   "userdoc": {
     "methods": {}
   }
+}
