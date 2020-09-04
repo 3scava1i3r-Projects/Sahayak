@@ -76,7 +76,9 @@ const initUpload = () => {
         const n = l.transactionHash;
         //console.log();
 
-         swal("Please save this skylink and transaction hash respectivesly", skylink + "   and  " + n , "info");
+
+
+        swal("Please save this skylink and transaction hash respectivesly", skylink + "   and  " + n , "info");
 
        //   swal ( "Oops" ,  "Something went wrong!" ,  "error" );
 
@@ -111,6 +113,56 @@ const initTimeline = () => {
     const b = await web3.eth.getBlock(a.blockHash);
     //const h = b.timestamp;
     //if(Account_details )
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const q = await web3.eth.getTransaction(Txn_Hash.value);
+    //const w = await web3.eth.getBlock(q.input);
+
+//////////////////////////////////////////////////////////////logic for validation
+
+    // const client = new SkynetClient("https://siasky.net/");
+    // const { skylink } = await client.upload(file);
+    // // console.log(skylink);
+    // accounts = await web3.eth.getAccounts();
+    // const l = await sahayak.methods
+    // .store(skylink)
+    // .send({from: accounts[0]});
+    // //const n = l.transactionHash;
+    //
+    //
+    // const p = await web3.eth.getTransaction(l.transactionHash);
+    //
+    //
+    //
+    //
+    // console.log(q.input);
+    //
+    // if(q.input == p.input){
+    //   alert("1");
+    // }
+    // else{
+    //   alert("0");
+    // }
+
+////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
     if(Account_details.value == a.from){
     //console.log(b.timestamp);
     swal("unix timestamp!", timeConverter(b.timestamp) , "info");
