@@ -8,20 +8,16 @@ import Sahayak from "./abis/Sahayak.json";
 //import '@babel/polyfill/noConflict';
 
 var file;
+var file2;
 let accounts = [];
 let sahayak;
-
-
-
-
-
 
 
 const Imglink = document.getElementById("img_link");
 const Imgbtn = document.getElementById("button-addon2");
 const Browse2up = document.getElementById("inputGroupFile02");
 const Upload2up = document.getElementById("inputGroupFileAddon02");
-const Browse2ver = document.getElementById("Browse2ver");
+const Browse2ver = document.getElementById("inputGroupFile03");
 const Txn_Hash = document.getElementById("Txn_Hash");
 const Timeline2ver = document.getElementById("Timeline2ver");
 
@@ -46,7 +42,7 @@ const initBrowse = () => {
       // console.log(file);
   });
   Browse2ver.addEventListener("change",  () => {
-       file = Browse2ver.files[0];
+       file2 = Browse2ver.files[0];
       // console.log(file);
   });
 };
@@ -84,7 +80,7 @@ const initUpload = () => {
         const q = await web3.eth.getTransaction(Txn_Hash.value);
 
         const client = new SkynetClient("https://siasky.net/");
-        const { skylink } = await client.upload(file);
+        const { skylink } = await client.upload(file2);
         // console.log(skylink);
         accounts = await web3.eth.getAccounts();
         const l = await sahayak.methods
@@ -94,13 +90,13 @@ const initUpload = () => {
 
         const p = await web3.eth.getTransaction(l.transactionHash);
 
-        console.log(q.input);
+      //  console.log(q.input);
 
         if(q.input == p.input){
-         alert("1");
+         swal("Verified", "Authentic file!" , "info");
         }
         else{
-         alert("0");
+          swal ( "Oops" ,  "Not the same file!" ,  "error" );
         }
       });
   };
@@ -112,7 +108,7 @@ const initUpload = () => {
         const a = await web3.eth.getTransaction(Txn_Hash.value);
         const b = await web3.eth.getBlock(a.blockHash);
 
-        swal("unix timestamp!", timeConverter(b.timestamp) , "info");
+        swal("Timestamp for you file is!", timeConverter(b.timestamp) , "info");
           //if(Account_details.value == a.from){
           //console.log(b.timestamp);
 
@@ -150,7 +146,7 @@ const initContract = () => {
       .address
   );
 };
-//const SahayakAddress = '0x2e5a135b7D8c0f09fC14052D414dFA3Efdb44dfD';
+//const SahayakAddress = '';
 //const web3 = new Web3('http://127.0.0.1:7545');
 //const sahayak = new web3.eth.Contract(Sahayakabi, SahayakAddress);
 //const Timeline_button = document.getElementById("timeline");
