@@ -57,44 +57,55 @@
       <h2 class="baseline">Be 100% assure about all your documents.</h2>
   </section>
   <section id="second_section">
-  <div class="all_buttons">
-    <div>
-      <div class="input-group mb-3 search">
-        <input type="text" class="form-control" id="img_link" placeholder="image link" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-info" type="button" id="button-addon2">Search</button>
+    <div class="all_buttons">
+      <div>
+        <div class="input-group mb-3 search">
+          <input type="text" class="form-control" id="Txnhash" placeholder="Transaction Hash" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="input-group mb-3 box">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile02">
+            <label class="custom-file-label label-1" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+          </div>
+          <div class="input-group-append">
+            <span class="input-group-text btn btn-primary" id="inputGroupFileAddon02">Upload</span>
+          </div>
+        </div>
+        <script type="application/javascript">
+          $('input[type="file"]').change(function(e) {
+            var fileName = e.target.files[0].name;
+            $('.label-1').html(fileName);
+          });
+        </script>
+      </div>
+      <div>
+        <div class="input-group verify">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile02">
+              <label class="custom-file-label label-2" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+            </div>
+          </div>
+          <script type="application/javascript">
+            $('input[type="file"]').change(function(e) {
+              var fileName = e.target.files[0].name;
+              $('.label-2').html(fileName);
+            });
+          </script>
+          <div class="input-group-append" id="button-addon4">
+            <button class="btn btn-primary" type="button">Verify</button>
+            <button class="btn btn-primary" type="button">Timeline</button>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      <div class="input-group mb-3 box">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="inputGroupFile02">
-          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-        </div>
-        <div class="input-group-append">
-          <span class="input-group-text btn btn-info" id="inputGroupFileAddon02">Upload</span>
-        </div>
-      </div>
-      <script type="application/javascript">
-        $('input[type="file"]').change(function(e) {
-          var fileName = e.target.files[0].name;
-          $('.custom-file-label').html(fileName);
-        });
-      </script>
-    </div>
-    <div>
-      <div class="input-group verify">
-        <input type="text" class="form-control" id="Txn_Hash" placeholder="Recipient's username" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
-        <div class="input-group-append" id="button-addon4">
-          <button class="btn btn-info" type="button" id="Browse2ver">Browse</button>
-          <button class="btn btn-info" type="button" id="Ver2ver">Verify</button>
-          <button class="btn btn-info" type="button" id="Timeline2ver">Timeline</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
   <script type="text/javaScript" src="./dist/bundle.js"></script>
   <footer id="footer">
     <div class="footer-text">

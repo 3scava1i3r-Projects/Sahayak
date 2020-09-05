@@ -179,11 +179,12 @@ body {
 }
 
 .all_buttons{
-  display: flex;
-  justify-content: space-around;
-  height: 100vh;
-  align-items: center;
-  background-color: black;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    align-items: center;
+    background-color: #222831;
 }
 .box {
   max-width: 250px;
@@ -197,7 +198,8 @@ body {
 
 .verify{
   max-width: 265px;
-  margin: 10px;
+  display: flex;
+  justify-content: space-around;
 
 }
 
