@@ -60,7 +60,7 @@
     <div class="all_buttons">
       <div>
         <div class="input-group mb-3 search">
-          <input type="text" class="form-control" id="Txnhash" placeholder="Transaction Hash" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <input type="text" class="form-control" id="img_link" placeholder="Image Link" aria-label="Recipient's username" aria-describedby="button-addon2">
           <div class="input-group-append">
             <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
           </div>
@@ -85,22 +85,22 @@
       </div>
       <div>
         <div class="input-group verify">
-          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+          <input type="text" class="form-control" placeholder="Transaction Hash" id="Txn_Hash" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
           <div class="input-group mb-3">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="inputGroupFile02">
-              <label class="custom-file-label label-2" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+              <input type="file" class="custom-file-input" id="inputGroupFile03">
+              <label class="custom-file-label label-2" for="inputGroupFile03" aria-describedby="inputGroupFileAddon03">Choose file</label>
             </div>
           </div>
-          <script type="application/javascript">
+          <!-- <script type="application/javascript">
             $('input[type="file"]').change(function(e) {
               var fileName = e.target.files[0].name;
               $('.label-2').html(fileName);
             });
-          </script>
+          </script> -->
           <div class="input-group-append" id="button-addon4">
-            <button class="btn btn-primary" type="button">Verify</button>
-            <button class="btn btn-primary" type="button">Timeline</button>
+            <button class="btn btn-primary" type="button" id="Ver2ver">Verify</button>
+            <button class="btn btn-primary" type="button" id="Timeline2ver">Timeline</button>
           </div>
         </div>
       </div>
