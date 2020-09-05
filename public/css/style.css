@@ -27,7 +27,7 @@ body {
   pointer-events: auto;
   display: inline-block;
   margin-left: 5%;
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: auto;
   overflow: hidden;
   font-size: 2rem;
@@ -41,7 +41,7 @@ body {
   pointer-events: auto;
   display: inline-block;
   margin-left: 5%;
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: auto;
   overflow: hidden;
   font-size: 2rem;
@@ -53,8 +53,8 @@ body {
 .header nav {
   pointer-events: auto;
   position: absolute;
-  top: 3rem;
-  right: 5%;
+  top: 3.2rem;
+  left: 15%;
   color: inherit;
 }
 
@@ -174,56 +174,31 @@ body {
   }
 }
 
-.input {
-  max-width: 250px;
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  top: 79%;
-  right: 3%;
+#second_section{
+    background-color: black;
 }
 
+.all_buttons{
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  align-items: center;
+  background-color: black;
+}
 .box {
   max-width: 250px;
-  display: flex;
-  position: absolute;
-  top: 85%;
-  right: 3%;
+
 }
 
 .search {
   max-width: 250px;
-  display: flex;
-  position: absolute;
-  top: 73%;
-  right: 3%;
+
 }
 
-@media (max-width: 1024px) {
-  .input {
-    max-width: 300px;
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    top: 82%;
-    right: 3%;
-  }
+.verify{
+  max-width: 265px;
+  margin: 10px;
 
-  .box {
-    max-width: 300px;
-    display: flex;
-    position: absolute;
-    top: 85%;
-    right: 3%;
-  }
-
-  .search {
-    max-width: 300px;
-    display: flex;
-    position: absolute;
-    top: 79%;
-    right: 3%;
-  }
 }
 
 #footer {
