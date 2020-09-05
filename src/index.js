@@ -55,10 +55,12 @@ const initUpload = () => {
 
          const client = new SkynetClient("https://siasky.net/");
          const { skylink } = await client.upload(file);
+         const hash = CryptoJS.SHA256(skylink).toString();
+         //console.log(hash);
         // console.log(skylink);
         accounts = await web3.eth.getAccounts();
         const l = await sahayak.methods
-        .store(skylink)
+        .store(hash)
         .send({from: accounts[0]});
         const n = l.transactionHash;
         //console.log();
@@ -82,9 +84,11 @@ const initUpload = () => {
         const client = new SkynetClient("https://siasky.net/");
         const { skylink } = await client.upload(file2);
         // console.log(skylink);
+        const hash = CryptoJS.SHA256(skylink).toString();
+        //console.log(hash);
         accounts = await web3.eth.getAccounts();
         const l = await sahayak.methods
-        .store(skylink)
+        .store(hash)
         .send({from: accounts[0]});
         //const n = l.transactionHash;
 
