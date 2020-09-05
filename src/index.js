@@ -7,16 +7,134 @@ import Sahayak from "./abis/Sahayak.json";
 //import webpack from 'webpack';
 //import '@babel/polyfill/noConflict';
 
-
 var file;
 let accounts = [];
 let sahayak;
-const HiddenInput = document.getElementById("inputGroupFile02");
-const Txndetails = document.getElementById("button-addon1");
-const Account_details = document.getElementById("acc");
-const Final_Upload = document.getElementById("inputGroupFileAddon02");
-const Txn_Hash = document.getElementById("Txnhash");
-const Search_button = document.getElementById("button-addon2");
+
+
+
+
+
+
+
+const Imglink = document.getElementById("img_link");
+const Imgbtn = document.getElementById("button-addon2");
+const Browse2up = document.getElementById("inputGroupFile02");
+const Upload2up = document.getElementById("inputGroupFileAddon02");
+const Browse2ver = document.getElementById("Browse2ver");
+const Txn_Hash = document.getElementById("Txn_Hash");
+const Timeline2ver = document.getElementById("Timeline2ver");
+
+
+
+const initimglink = () => {
+  Imgbtn.addEventListener("click",  () => {
+    try {
+    const client = new SkynetClient("https://siasky.net/");
+    client.open(Imglink.value);
+    }
+    catch (error) {
+    console.log(error)
+  }
+  });
+};
+
+
+const initBrowse = () => {
+  Browse2up.addEventListener("change",  () => {
+       file = Browse2up.files[0];
+      // console.log(file);
+  });
+  Browse2ver.addEventListener("change",  () => {
+       file = Browse2ver.files[0];
+      // console.log(file);
+  });
+};
+
+
+
+const initUpload = () => {
+  Upload2up.addEventListener("click", async () => {
+     try {
+
+         const client = new SkynetClient("https://siasky.net/");
+         const { skylink } = await client.upload(file);
+        // console.log(skylink);
+        accounts = await web3.eth.getAccounts();
+        const l = await sahayak.methods
+        .store(skylink)
+        .send({from: accounts[0]});
+        const n = l.transactionHash;
+        //console.log();
+
+        swal("Please save this skylink and transaction hash respectivesly", skylink + "   and  " + n , "info");
+
+       //   swal ( "Oops" ,  "Something went wrong!" ,  "error" );
+    //   const hash = CryptoJS.SHA256(skylink).toString();
+
+     } catch (error) {
+       console.log(error);
+     }
+   });
+ };
+
+  const initVerUpload = () => {
+      Ver2ver.addEventListener("click",  async () => {
+
+        const q = await web3.eth.getTransaction(Txn_Hash.value);
+
+        const client = new SkynetClient("https://siasky.net/");
+        const { skylink } = await client.upload(file);
+        // console.log(skylink);
+        accounts = await web3.eth.getAccounts();
+        const l = await sahayak.methods
+        .store(skylink)
+        .send({from: accounts[0]});
+        //const n = l.transactionHash;
+
+        const p = await web3.eth.getTransaction(l.transactionHash);
+
+        console.log(q.input);
+
+        if(q.input == p.input){
+         alert("1");
+        }
+        else{
+         alert("0");
+        }
+      });
+  };
+
+
+  const initTimeline = () => {
+    Timeline2ver.addEventListener("click", async () => {
+
+        const a = await web3.eth.getTransaction(Txn_Hash.value);
+        const b = await web3.eth.getBlock(a.blockHash);
+
+        swal("unix timestamp!", timeConverter(b.timestamp) , "info");
+          //if(Account_details.value == a.from){
+          //console.log(b.timestamp);
+
+          //alert( "here is the timestamp  " + timeConverter(b.timestamp) );
+      //    }
+        //  else{
+      //      swal ( "Oops" ,  "Something went wrong!" ,  "error" );
+      ///  }
+          //console.log(a);
+          //console.log(a.blockHash);
+
+          //console.log(b.timestamp)
+        });
+      };
+
+
+// const HiddenInput = document.getElementById("inputGroupFile02");
+// const Txndetails = document.getElementById("button-addon1");
+// const Account_details = document.getElementById("acc");
+// const Final_Upload = document.getElementById("inputGroupFileAddon02");
+//
+// const Search_button = document.getElementById("button-addon2");
 
 
 //window.global = window;
@@ -52,130 +170,128 @@ function timeConverter(UNIX_timestamp){
 }
 
 
-const initBrowse = () => {
-  HiddenInput.addEventListener("change",  () => {
-       file = HiddenInput.files[0];
-      // console.log(file);
-  });
-};
+// const initBrowse = () => {
+//   HiddenInput.addEventListener("change",  () => {
+//        file = HiddenInput.files[0];
+//       // console.log(file);
+//   });
+// };
+//
+//
+//
+// const initUpload = () => {
+//   Final_Upload.addEventListener("click", async () => {
+//      try {
+//
+//          const client = new SkynetClient("https://siasky.net/");
+//          const { skylink } = await client.upload(file);
+//         // console.log(skylink);
+//         accounts = await web3.eth.getAccounts();
+//         const l = await sahayak.methods
+//         .store(skylink)
+//         .send({from: accounts[0]});
+//         const n = l.transactionHash;
+//         //console.log();
+//
+//
+//
+//         swal("Please save this skylink and transaction hash respectivesly", skylink + "   and  " + n , "info");
+//
+//        //   swal ( "Oops" ,  "Something went wrong!" ,  "error" );
+//
+//
+//     //   const hash = CryptoJS.SHA256(skylink).toString();
+//      } catch (error) {
+//        console.log(error);
+//      }
+//    });
+// };
+//
+//
+// const initSearch = () => {
+//   Search_button.addEventListener("click", async () => {
+//
+//       try {
+//       const client = new SkynetClient("https://siasky.net/");
+//       client.open(Txn_Hash.value);
+//
+//     } catch (error) {
+//       console.log(error)
+//     }
+//    });
+// };
+
+
+//
+// const initTimeline = () => {
+//   Txndetails.addEventListener("click", async () => {
+//
+//     const a = await web3.eth.getTransaction(Txn_Hash.value);
+//     const b = await web3.eth.getBlock(a.blockHash);
+//     //const h = b.timestamp;
+//     //if(Account_details )
+//
+//     if(Account_details.value == a.from){
+//     //console.log(b.timestamp);
+//     swal("unix timestamp!", timeConverter(b.timestamp) , "info");
+//     //alert( "here is the timestamp  " + timeConverter(b.timestamp) );
+//     }
+//     else{
+//       swal ( "Oops" ,  "Something went wrong!" ,  "error" );
+//   }
+//     //console.log(a);
+//     //console.log(a.blockHash);
+//
+//
+//     //console.log(b.timestamp)
+//   });
+// };
 
 
 
-
-const initUpload = () => {
-  Final_Upload.addEventListener("click", async () => {
-     try {
-
-         const client = new SkynetClient("https://siasky.net/");
-         const { skylink } = await client.upload(file);
-        // console.log(skylink);
-        accounts = await web3.eth.getAccounts();
-        const l = await sahayak.methods
-        .store(skylink)
-        .send({from: accounts[0]});
-        const n = l.transactionHash;
-        //console.log();
-
-
-
-        swal("Please save this skylink and transaction hash respectivesly", skylink + "   and  " + n , "info");
-
-       //   swal ( "Oops" ,  "Something went wrong!" ,  "error" );
-
-
-    //   const hash = CryptoJS.SHA256(skylink).toString();
-     } catch (error) {
-       console.log(error);
-     }
-   });
-};
-
-
-const initSearch = () => {
-  Search_button.addEventListener("click", async () => {
-
-      try {
-      const client = new SkynetClient("https://siasky.net/");
-      client.open(Txn_Hash.value);
-
-    } catch (error) {
-      console.log(error)
-    }
-   });
-};
-
-
-
-const initTimeline = () => {
-  Txndetails.addEventListener("click", async () => {
-
-    const a = await web3.eth.getTransaction(Txn_Hash.value);
-    const b = await web3.eth.getBlock(a.blockHash);
-    //const h = b.timestamp;
-    //if(Account_details )
-
-
-
-
-    //const w = await web3.eth.getBlock(q.input);
+//const w = await web3.eth.getBlock(q.input);
 
 //////////////////////////////////////////////////////////////logic for validation
 
 
-    //  const q = await web3.eth.getTransaction(Txn_Hash.value);
-
-    // const client = new SkynetClient("https://siasky.net/");
-    // const { skylink } = await client.upload(file);
-    // // console.log(skylink);
-    // accounts = await web3.eth.getAccounts();
-    // const l = await sahayak.methods
-    // .store(skylink)
-    // .send({from: accounts[0]});
-    // //const n = l.transactionHash;
-    //
-    //
-    // const p = await web3.eth.getTransaction(l.transactionHash);
-    //
-    //
-    //
-    //
-    // console.log(q.input);
-    //
-    // if(q.input == p.input){
-    //   alert("1");
-    // }
-    // else{
-    //   alert("0");
-    // }
+//  const q = await web3.eth.getTransaction(Txn_Hash.value);
+//
+// const client = new SkynetClient("https://siasky.net/");
+// const { skylink } = await client.upload(file);
+// // console.log(skylink);
+// accounts = await web3.eth.getAccounts();
+// const l = await sahayak.methods
+// .store(skylink)
+// .send({from: accounts[0]});
+// //const n = l.transactionHash;
+//
+//
+// const p = await web3.eth.getTransaction(l.transactionHash);
+//
+//
+//
+//
+// console.log(q.input);
+//
+// if(q.input == p.input){
+//   alert("1");
+// }
+// else{
+//   alert("0");
+// }
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-
-
-    if(Account_details.value == a.from){
-    //console.log(b.timestamp);
-    swal("unix timestamp!", timeConverter(b.timestamp) , "info");
-    //alert( "here is the timestamp  " + timeConverter(b.timestamp) );
-    }
-    else{
-      swal ( "Oops" ,  "Something went wrong!" ,  "error" );
-  }
-    //console.log(a);
-    //console.log(a.blockHash);
-
-
-    //console.log(b.timestamp)
-  });
-};
 
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
 
      sahayak = initContract();
+     initimglink();
      initBrowse();
      initUpload();
-     initSearch();
+     initVerUpload();
      initTimeline();
 
   }
