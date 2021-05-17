@@ -26,7 +26,7 @@ presentation link - https://docs.google.com/presentation/d/1Wj8pc1e0ncsXTZH02FJJ
 
 ## Website Link
 
-https://edhttps://condescending-swartz-1dab3a.netlify.app/ucation-doc-sahayak.netlify.app
+https://education-doc-sahayak.netlify.app
 
 ## Youtube Video
 
