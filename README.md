@@ -26,7 +26,7 @@ presentation link - https://docs.google.com/presentation/d/1Wj8pc1e0ncsXTZH02FJJ
 
 ## Website Link
 
-https://education-doc-sahayak.netlify.app
+visit this link for access - https://sahayak1.netlify.app/
 
 ## Youtube Video
 
